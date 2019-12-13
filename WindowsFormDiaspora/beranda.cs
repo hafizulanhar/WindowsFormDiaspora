@@ -14,19 +14,21 @@ namespace WindowsFormDiaspora
 {
     public partial class beranda : Form
     {
-        public beranda(string tanda)
+        string tanda;
+
+        public beranda(string t)
         {
             InitializeComponent();
-
-            if (tanda == "imm")
+            tanda = t;
+            if (t == "imm")
             {
                 getDataAllimm();
             }
-            else if (tanda == "dpm")
+            else if (t == "dpm")
             {
                 getDataAlldpm();
             }
-            else if (tanda == "bem")
+            else if (t == "bem")
             {
                 getDataAllbem();
             }
@@ -77,10 +79,10 @@ namespace WindowsFormDiaspora
             dataGridView1.DataSource = pesanan;
 
         }
-        void getData(string p)
+        void search(string p)
         {
             pengurus pengurus = new pengurus();
-            string result = new WebClient().DownloadString(address.basuriRetrive + "getdata/nm="+p);
+            string result = new WebClient().DownloadString(address.basuriRetrive + "search/nm="+p);
             pengurus = JsonConvert.DeserializeObject<pengurus>(result);
             List<pengurus> penguruslist = new List<pengurus>();
             penguruslist.Add(pengurus);
@@ -94,7 +96,7 @@ namespace WindowsFormDiaspora
 
         private void button1_Click(object sender, EventArgs e)
         {
-            add add = new add("add","");
+            add add = new add("tambah",0, tanda);
             add.Show();
             this.Hide();
         }
@@ -113,7 +115,9 @@ namespace WindowsFormDiaspora
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            opsiorganisasi opsi = new opsiorganisasi();
+            opsi.Show();
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -130,7 +134,7 @@ namespace WindowsFormDiaspora
         {
             if(textBox1.Text != "")
             {
-                getData(textBox1.Text);
+                search(textBox1.Text);
             }
             else
             {
@@ -145,8 +149,30 @@ namespace WindowsFormDiaspora
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            add add = new add("update",dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            add add = new add("update",Convert.ToInt32 (dataGridView1.CurrentRow.Cells[0].Value), tanda);
             add.Show();
+        }
+
+        void delete(pengurus p)
+        {
+            string request = JsonConvert.SerializeObject(p);
+            WebClient client = new WebClient();
+            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+            string result = client.UploadString(address.basuriManipulate + "deletedata", request);
+        }
+
+        private void delbt_Click(object sender, EventArgs e)
+        {
+            int del = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            DialogResult result = MessageBox.Show("Anda Yakin Menghapus " + dataGridView1.CurrentRow.Cells[1].Value + "?", "Yakin Menghapus ?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                pengurus pengurus = new pengurus();
+                pengurus.no_anggota = del;
+
+                delete(pengurus);
+                getDataAll();
+            }
         }
     }
 }

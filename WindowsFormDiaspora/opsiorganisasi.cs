@@ -35,28 +35,28 @@ namespace WindowsFormDiaspora
             
             beranda imm = new beranda("imm");
             imm.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             beranda bem = new beranda("bem");
             bem.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             beranda dpm = new beranda("dpm");
             dpm.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             beranda all = new beranda("all");
             all.Show();
-            //this.Hide();
+            this.Hide();
         }
     }
 }

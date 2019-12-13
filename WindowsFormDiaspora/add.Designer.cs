@@ -35,7 +35,6 @@
             this.kontaktxt = new System.Windows.Forms.TextBox();
             this.angkatantxt = new System.Windows.Forms.TextBox();
             this.periodetxt = new System.Windows.Forms.TextBox();
-            this.organisasitxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +45,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.deletebt = new System.Windows.Forms.Button();
+            this.cb_organisasi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,14 +97,6 @@
             this.periodetxt.Name = "periodetxt";
             this.periodetxt.Size = new System.Drawing.Size(475, 40);
             this.periodetxt.TabIndex = 5;
-            // 
-            // organisasitxt
-            // 
-            this.organisasitxt.Location = new System.Drawing.Point(249, 298);
-            this.organisasitxt.Multiline = true;
-            this.organisasitxt.Name = "organisasitxt";
-            this.organisasitxt.Size = new System.Drawing.Size(475, 40);
-            this.organisasitxt.TabIndex = 6;
             // 
             // label1
             // 
@@ -195,6 +188,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Ubah";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
@@ -207,12 +201,37 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
             // 
+            // deletebt
+            // 
+            this.deletebt.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebt.Location = new System.Drawing.Point(422, 380);
+            this.deletebt.Name = "deletebt";
+            this.deletebt.Size = new System.Drawing.Size(89, 34);
+            this.deletebt.TabIndex = 17;
+            this.deletebt.Text = "Delete";
+            this.deletebt.UseVisualStyleBackColor = true;
+            this.deletebt.Click += new System.EventHandler(this.deletebt_Click);
+            // 
+            // cb_organisasi
+            // 
+            this.cb_organisasi.FormattingEnabled = true;
+            this.cb_organisasi.Items.AddRange(new object[] {
+            "IMM",
+            "BEM",
+            "DPM"});
+            this.cb_organisasi.Location = new System.Drawing.Point(249, 303);
+            this.cb_organisasi.Name = "cb_organisasi";
+            this.cb_organisasi.Size = new System.Drawing.Size(79, 24);
+            this.cb_organisasi.TabIndex = 18;
+            // 
             // add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_organisasi);
+            this.Controls.Add(this.deletebt);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -223,7 +242,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.organisasitxt);
             this.Controls.Add(this.periodetxt);
             this.Controls.Add(this.angkatantxt);
             this.Controls.Add(this.kontaktxt);
@@ -247,7 +265,6 @@
         private System.Windows.Forms.TextBox kontaktxt;
         private System.Windows.Forms.TextBox angkatantxt;
         private System.Windows.Forms.TextBox periodetxt;
-        private System.Windows.Forms.TextBox organisasitxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -258,5 +275,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button deletebt;
+        private System.Windows.Forms.ComboBox cb_organisasi;
     }
 }
