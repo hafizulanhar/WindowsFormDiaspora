@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormDiaspora", "WindowsFormDiaspora\WindowsFormDiaspora.csproj", "{25369430-51B9-4FBF-918A-4100B1878969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25369430-51B9-4FBF-918A-4100B1878969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25369430-51B9-4FBF-918A-4100B1878969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25369430-51B9-4FBF-918A-4100B1878969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25369430-51B9-4FBF-918A-4100B1878969}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17C03CD3-10DE-4FCB-AF54-5E2C0C5F269A}
+	EndGlobalSection
+EndGlobal
