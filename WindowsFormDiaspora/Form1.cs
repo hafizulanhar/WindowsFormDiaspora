@@ -33,7 +33,7 @@ namespace WindowsFormDiaspora
         {
             opsiorganisasi form3 = new opsiorganisasi();
             form3.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

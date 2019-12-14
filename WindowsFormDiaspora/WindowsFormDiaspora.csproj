@@ -56,6 +56,7 @@
       <DependentUpon>add.cs</DependentUpon>
     </Compile>
     <Compile Include="address.cs" />
+    <Compile Include="admin.cs" />
     <Compile Include="adminlogin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -47,7 +47,6 @@ namespace WindowsFormDiaspora
             //deserialization : ubah dari string json ke objek
             pesanan = JsonConvert.DeserializeObject<List<pengurus>>(result);
             dataGridView1.DataSource = pesanan;
-
         }
 
         public void getDataAllimm()
@@ -72,21 +71,18 @@ namespace WindowsFormDiaspora
 
         public void getDataAllbem()
         {
-            List<pengurus> pesanan = new List<pengurus>();
+            List<pengurus> pengurus = new List<pengurus>();
             string result = new WebClient().DownloadString(address.basuriRetrive + "getalldatabem");
             //deserialization : ubah dari string json ke objek
-            pesanan = JsonConvert.DeserializeObject<List<pengurus>>(result);
-            dataGridView1.DataSource = pesanan;
-
+            pengurus = JsonConvert.DeserializeObject<List<pengurus>>(result);
+            dataGridView1.DataSource = pengurus;
         }
         void search(string p)
         {
-            pengurus pengurus = new pengurus();
+            List<pengurus> pengurus = new List<pengurus>();
             string result = new WebClient().DownloadString(address.basuriRetrive + "search/nm="+p);
-            pengurus = JsonConvert.DeserializeObject<pengurus>(result);
-            List<pengurus> penguruslist = new List<pengurus>();
-            penguruslist.Add(pengurus);
-            dataGridView1.DataSource = penguruslist;
+            pengurus = JsonConvert.DeserializeObject<List<pengurus>>(result);
+            dataGridView1.DataSource = pengurus;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +94,7 @@ namespace WindowsFormDiaspora
         {
             add add = new add("tambah",0, tanda);
             add.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void beranda_Load(object sender, EventArgs e)
@@ -110,24 +106,19 @@ namespace WindowsFormDiaspora
         {
             Form1 logout = new Form1();
             logout.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             opsiorganisasi opsi = new opsiorganisasi();
             opsi.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             
-        }
-
-        public class dataOrganisasi
-        {
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -138,7 +129,22 @@ namespace WindowsFormDiaspora
             }
             else
             {
-                getDataAll();
+                if (tanda == "imm")
+                {
+                    getDataAllimm();
+                }
+                else if (tanda == "dpm")
+                {
+                    getDataAlldpm();
+                }
+                else if (tanda == "bem")
+                {
+                    getDataAllbem();
+                }
+                else
+                {
+                    getDataAll();
+                }
             }
         }
 
@@ -151,6 +157,7 @@ namespace WindowsFormDiaspora
         {
             add add = new add("update",Convert.ToInt32 (dataGridView1.CurrentRow.Cells[0].Value), tanda);
             add.Show();
+            this.Close();
         }
 
         void delete(pengurus p)

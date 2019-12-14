@@ -21,7 +21,7 @@ namespace WindowsFormDiaspora
         {
             Form1 home = new Form1();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
 
@@ -35,28 +35,35 @@ namespace WindowsFormDiaspora
             
             beranda imm = new beranda("imm");
             imm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             beranda bem = new beranda("bem");
             bem.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             beranda dpm = new beranda("dpm");
             dpm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             beranda all = new beranda("all");
             all.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Form1 home = new Form1();
+            home.Show();
+            this.Close();
         }
     }
 }

@@ -17,10 +17,6 @@ namespace WindowsFormDiaspora
         string status = "pembeda";
         int id;
         string tanda;
-        
-
-        //string url = "http://192.168.100.8/diaspora/ManipulateService.svc/";
-        //string url1 = "http://192.168.100.8/diaspora/RetrieveService.svc/";
 
         public add(string st, int idinput, string t)
         {
@@ -74,16 +70,14 @@ namespace WindowsFormDiaspora
             p.jabatan = jabatantxt.Text;
             p.angkatan = angkatantxt.Text;
             p.periode = periodetxt.Text;
-            //p.id_organisasi = Convert.ToInt32(organisasitxt.Text);
             p.id_organisasi = id_org;            
 
             if (status == "tambah")
             {
                 addData(p);
-                //MessageBox.Show("ramashoq");
                 beranda back = new beranda(tanda);
                 back.Show();
-                this.Hide();
+                this.Close();
             }
 
             else if (status == "update")
@@ -92,11 +86,8 @@ namespace WindowsFormDiaspora
                 update(p);
                 beranda back = new beranda(tanda);
                 back.Show();
-                this.Hide();
+                this.Close();
             }
-
-            
-
         }
         void getData(string p)
         {
@@ -132,28 +123,19 @@ namespace WindowsFormDiaspora
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
             string result = client.UploadString(address.basuriManipulate + "updatedata", request);
         }
-
-
         void addData(pengurus p)
         {
             string request = JsonConvert.SerializeObject(p);
             WebClient client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
             string result = client.UploadString(address.basuriManipulate + "adddata", request);
-            
-            //return;
         }
-
-       
-
-
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
             beranda back = new beranda(tanda);
             back.Show();
             this.Hide();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             namatxt.Enabled = true;
@@ -164,7 +146,6 @@ namespace WindowsFormDiaspora
             periodetxt.Enabled = true;
             cb_organisasi.Enabled = true;
         }
-
         private void deletebt_Click(object sender, EventArgs e)
         {
             
